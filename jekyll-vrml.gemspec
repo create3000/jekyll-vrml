@@ -13,15 +13,15 @@ Gem::Specification.new do |spec|
 
   spec.summary = "VRML Syntax Highlighter"
   spec.description = "Adds support for VRML syntax highlighting to Jekyll."
-  spec.homepage = "https://github.com/create3000/jekyll-vrml"
+  spec.homepage = "https://github.com/create3000/jekyll-vrml/blob/main/README.md"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.0.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "https://github.com/create3000/jekyll-vrml"
-  # spec.metadata["changelog_uri"] = "https://github.com/create3000/jekyll-vrml"
+  spec.metadata["source_code_uri"] = "https://github.com/create3000/jekyll-vrml/"
+  # spec.metadata["changelog_uri"] = "https://github.com/create3000/jekyll-vrml/commits/main/"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
