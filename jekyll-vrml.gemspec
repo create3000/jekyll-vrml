@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative "lib/jekyll/vrml/version"
+require_relative "lib/jekyll-vrml/version"
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-vrml"
-  spec.version = Jekyll::Vrml::VERSION
+  spec.version = JekyllVrml::VERSION
   spec.authors = ["Holger Seelig"]
   spec.email = ["holger.seelig@gmail.com"]
 
