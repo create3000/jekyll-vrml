@@ -6,7 +6,7 @@ Adds support for VRML syntax highlighting to Jekyll.
 
 Add the following lines to your Gemfile:
 
-```
+```ruby
 group :jekyll_plugins do
   gem 'jekyll-vrml', '~> 2.0'
 end
