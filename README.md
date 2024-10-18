@@ -8,7 +8,7 @@ Add the following lines to your Gemfile:
 
 ```
 group :jekyll_plugins do
-  gem "jekyll-vrml"
+  gem 'jekyll-vrml', '~> 2.0'
 end
 ```
 
