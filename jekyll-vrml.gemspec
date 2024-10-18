@@ -17,8 +17,8 @@ Gem::Specification.new do |spec|
   spec.metadata["allowed_push_host"] = "https://rubgems.org"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/create3000/jekyll-vrml"
-  spec.metadata["changelog_uri"] = "https://github.com/create3000/jekyll-vrml"
+  # spec.metadata["source_code_uri"] = "https://github.com/create3000/jekyll-vrml"
+  # spec.metadata["changelog_uri"] = "https://github.com/create3000/jekyll-vrml"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
