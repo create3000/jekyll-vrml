@@ -12,4 +12,21 @@ group :jekyll_plugins do
 end
 ```
 
-After this run `bundle install`.
+After this run `bundle install`. Now you can highlight your source code as VRML:
+
+``````md
+```vrml
+#X3D V4.0 utf8
+
+PROFILE Interchange
+
+Transform {
+  children Shape {
+    appearance Appearance {
+      material Material { }
+    }
+    geometry Box { }
+  }
+}
+```
+``````
