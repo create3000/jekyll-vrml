@@ -1,0 +1,8 @@
+{
+  "name": "sunrize",
+  "scripts": {
+    "prebuild": "rm ./*.gem",
+    "build": "gem build jekyll-vrml.gemspec",
+    "publish": "gem push ./*.gem"
+  }
+}
