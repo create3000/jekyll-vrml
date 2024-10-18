@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.description = "Adds support for VRML syntax highlighting to Jekyll."
   spec.homepage = "https://github.com/create3000/jekyll-vrml"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.0.0"
+  spec.required_ruby_version = ">= 2.0.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
 
