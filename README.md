@@ -12,7 +12,7 @@ group :jekyll_plugins do
 end
 ```
 
-After this run `bundle install`. Now you can highlight your source code in Markdown as VRML:
+After this run `bundle install; bundle update`. Now you can highlight your source code in Markdown as VRML:
 
 ``````md
 ```vrml
