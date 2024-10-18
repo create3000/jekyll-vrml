@@ -6,7 +6,7 @@ require "jekyll"
 
 # This "hook" is executed right before the site"s pages are rendered
 Jekyll::Hooks.register :site, :pre_render do |site|
-  puts "Adding VRML Markdown Lexer ..."
+  # puts "Adding VRML Markdown Lexer ..."
   require "rouge"
 
   # This class defines the VRML lexer which is used to highlight "vrml" code snippets during render-time
