@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*- #
 # frozen_string_literal: true
 
-require_relative "vrml/version"
+require_relative "jekyll-vrml/version"
 require "jekyll"
 
-module JekyllVrml
-  # This "hook" is executed right before the site"s pages are rendered
+module Jekyll
+  # This "hook" is executed right before the site's pages are rendered
   Jekyll::Hooks.register :site, :pre_render do |site|
     puts "Adding VRML Markdown Lexer ..."
     require "rouge"
