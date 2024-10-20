@@ -1,5 +1,5 @@
 {
-  "name": "sunrize",
+  "name": "jekyll-vrml",
   "scripts": {
     "prebuild": "rm -f ./*.gem",
     "build": "gem build jekyll-vrml.gemspec",
