@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["holger.seelig@gmail.com"]
 
   spec.summary = "VRML Syntax Highlighter"
-  spec.description = "Adds support for X3D VRML syntax highlighting to Jekyll."
+  spec.description = "Adds support for VRML syntax highlighting to Jekyll. This allows developers to easily integrate and display X3D content within their Jekyll-powered websites."
   spec.homepage = "https://github.com/create3000/jekyll-vrml/blob/main/README.md"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.0.0"

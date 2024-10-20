@@ -1,6 +1,6 @@
 # jekyll-vrml
 
-Adds support for X3D VRML syntax highlighting to Jekyll.
+Adds support for VRML syntax highlighting to Jekyll. This allows developers to easily integrate and display X3D content within their Jekyll-powered websites.
 
 ## Usage
 
