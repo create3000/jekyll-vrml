@@ -61,7 +61,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       rule %r/[+-]?(?:(?:(?:\d*\.\d+)|(?:\d+(?:\.)?))(?:[eE][+-]?\d+)?)/, Num::Float
       rule %r/(?:0[xX][\da-fA-F]+)|(?:[+-]?\d+)/, Num::Integer
 
-      rule %r/"(?:ecmascript|javascript|vrmlscript):/ do
+      rule %r/"(?:(?:ecmascript|javascript|vrmlscript):|data:(?:text|application)\/javascript,)/ do
         token Str::Double
         @javascript.reset!
         push :ecmascript
