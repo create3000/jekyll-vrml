@@ -4,7 +4,7 @@ Adds support for VRML syntax highlighting to Jekyll. This allows developers to e
 
 ## Usage
 
-Add the following lines to your Gemfile:
+Add the following lines to your `Gemfile`:
 
 ```ruby
 group :jekyll_plugins do
@@ -12,7 +12,16 @@ group :jekyll_plugins do
 end
 ```
 
-After this, run `bundle install; bundle update`. Now you can highlight your source code in Markdown as VRML:
+After this, run `bundle install; bundle update`.
+
+In your `_config.yml` you need to specify that you want to use `rouge` as syntax highlighter.
+
+```yml
+kramdown:
+  syntax_highlighter: rouge
+```
+
+Now you can highlight your source code in Markdown as VRML:
 
 ``````md
 ```vrml
