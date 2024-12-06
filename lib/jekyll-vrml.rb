@@ -24,6 +24,10 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       return true if text =~ /\A#(?:X3D|VRML)\b/
     end
 
+    start do
+      @javascript = Rouge::Lexers::Javascript.new(options)
+    end
+
     state :comments_and_whitespace do
       rule %r/[\x20\n,\t\r]+/, Text
       rule %r/#.*?$/, Comment::Single
@@ -56,6 +60,12 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       rule %r/[+-]?(?:(?:(?:\d*\.\d+)|(?:\d+(?:\.)?))(?:[eE][+-]?\d+)?)/, Num::Float
       rule %r/(?:0[xX][\da-fA-F]+)|(?:[+-]?\d+)/, Num::Integer
 
+      rule %r/"(?:ecmascript|javascript|vrmlscript):/ do
+        token Str::Double
+        @javascript.reset!
+        push :ecmascript
+      end
+
       rule %r/"/, Str::Delimiter, :dq
     end
 
@@ -80,6 +90,18 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     state :dq do
       rule %r/\\[\\nrt"]?/, Str::Escape
       rule %r/[^\\"]+/, Str::Double
+      rule %r/"/, Str::Delimiter, :pop!
+    end
+
+    state :ecmascript do
+      # Avoid escaped double quotes string in dq strings.
+
+      rule %r/\\[\\nrt"]?/, Str::Escape
+
+      rule %r/[^\\"]+/ do
+        delegate @javascript
+      end
+
       rule %r/"/, Str::Delimiter, :pop!
     end
 
