@@ -26,6 +26,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
     start do
       @javascript = Rouge::Lexers::Javascript.new(options)
+      @glsl = Rouge::Lexers::Glsl.new(options)
     end
 
     state :comments_and_whitespace do
@@ -66,6 +67,12 @@ Jekyll::Hooks.register :site, :pre_render do |site|
         push :ecmascript
       end
 
+      rule %r/"data:x-shader\/(?:x-fragment|x-vertex),/ do
+        token Str::Double
+        @glsl.reset!
+        push :glsl
+      end
+
       rule %r/"/, Str::Delimiter, :dq
     end
 
@@ -100,6 +107,18 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
       rule %r/[^\\"]+/ do
         delegate @javascript
+      end
+
+      rule %r/"/, Str::Delimiter, :pop!
+    end
+
+    state :glsl do
+      # Avoid escaped double quotes string in dq strings.
+
+      rule %r/\\[\\nrt"]?/, Str::Escape
+
+      rule %r/[^\\"]+/ do
+        delegate @glsl
       end
 
       rule %r/"/, Str::Delimiter, :pop!
