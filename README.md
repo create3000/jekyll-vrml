@@ -42,5 +42,6 @@ Transform {
 
 ## See Also
 
+* [jekyll-x3d](https://github.com/create3000/jekyll-x3d)
 * [X_ITE X3D Browser](https://create3000.github.io/x_ite/)
 * [web3d.org](https://www.web3d.org)
