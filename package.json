@@ -4,6 +4,7 @@
     "prebuild": "rm -f ./*.gem",
     "build": "gem build jekyll-vrml.gemspec",
     "try": "sudo gem install ./*.gem",
-    "publish": "gem push ./*.gem"
+    "publish": "gem push ./*.gem",
+    "merge-development": "sh build/merge-development.sh"
   }
 }
