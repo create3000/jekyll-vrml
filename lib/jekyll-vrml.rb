@@ -31,7 +31,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
     state :comments_and_whitespace do
       rule %r/[\x20\n,\t\r]+/, Text
-      rule %r/#\/\*/, Comment::Single, :multilineComment
+      rule %r/#\/\*/, Comment::Multiline, :multilineComment
       rule %r/#.*?$/, Comment::Single
     end
 
@@ -78,9 +78,9 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     end
 
     state :multilineComment do
-      rule %r/[^*\/#]/, Comment::Single
-      rule %r/\*\/#/, Comment::Single, :pop!
-      rule %r/[*\/#]/, Comment::Single
+      rule %r/[^*\/#]/, Comment::Multiline
+      rule %r/\*\/#/, Comment::Multiline, :pop!
+      rule %r/[*\/#]/, Comment::Multiline
     end
 
     state :keywords do
