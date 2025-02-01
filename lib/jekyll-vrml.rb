@@ -31,6 +31,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
     state :comments_and_whitespace do
       rule %r/[\x20\n,\t\r]+/, Text
+      rule %r/#\/\*/, Comment::Single, :multilineComment
       rule %r/#.*?$/, Comment::Single
     end
 
@@ -39,10 +40,10 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     state :root do
       rule %r/[,:.]/, Punctuation
       rule %r/[{}\[\]]/, Punctuation
-      rule %r/PROTO|EXTERNPROTO/, Keyword, :typeName
-      rule %r/DEF|USE|ROUTE|TO|EXPORT|AS/, Keyword, :name
+      rule %r/\b(?:PROTO|EXTERNPROTO)\b/, Keyword, :typeName
+      rule %r/\b(?:DEF|USE|ROUTE|TO|EXPORT|AS)\b/, Keyword, :name
 
-      rule %r/(IMPORT)(\s*)(#{id})(\s*)(.)(\s*)(#{id})/ do
+      rule %r/\b(IMPORT)(\s*)(#{id})(\s*)(.)(\s*)(#{id})/ do
         groups Keyword, Text, Str::Regex, Text, Punctuation, Text, Str::Regex
       end
 
@@ -52,8 +53,8 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
       # https://github.com/rouge-ruby/rouge/blob/master/lib/rouge/lexers/javascript.rb
 
-      rule %r/TRUE|FALSE|NULL/, Keyword::Constant
-      rule %r/SFBool|SFColor|SFColorRGBA|SFDouble|SFFloat|SFImage|SFInt32|SFMatrix3d|SFMatrix3f|SFMatrix4d|SFMatrix4f|VrmlMatrix|SFNode|SFRotation|SFString|SFTime|SFVec2d|SFVec2f|SFVec3d|SFVec3f|SFVec4d|SFVec4f|MFBool|MFColor|MFColorRGBA|MFDouble|MFFloat|MFImage|MFInt32|MFMatrix3d|MFMatrix3f|MFMatrix4d|MFMatrix4f|MFNode|MFRotation|MFString|MFTime|MFVec2d|MFVec2f|MFVec3d|MFVec3f|MFVec4d|MFVec4f/, Keyword::Declaration
+      rule %r/\b(?:TRUE|FALSE|NULL)\b/, Keyword::Constant
+      rule %r/\b(?:SFBool|SFColor|SFColorRGBA|SFDouble|SFFloat|SFImage|SFInt32|SFMatrix3d|SFMatrix3f|SFMatrix4d|SFMatrix4f|VrmlMatrix|SFNode|SFRotation|SFString|SFTime|SFVec2d|SFVec2f|SFVec3d|SFVec3f|SFVec4d|SFVec4f|MFBool|MFColor|MFColorRGBA|MFDouble|MFFloat|MFImage|MFInt32|MFMatrix3d|MFMatrix3f|MFMatrix4d|MFMatrix4f|MFNode|MFRotation|MFString|MFTime|MFVec2d|MFVec2f|MFVec3d|MFVec3f|MFVec4d|MFVec4f)\b/, Keyword::Declaration
 
       rule %r/#{id}(?=\s*\{)/, Name::Class # typeNames
       rule %r/#{id}/, Name::Attribute # fieldNames
@@ -76,12 +77,18 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       rule %r/"/, Str::Delimiter, :dq
     end
 
+    state :multilineComment do
+      rule %r/[^*\/#]/, Comment::Single
+      rule %r/\*\/#/, Comment::Single, :pop!
+      rule %r/[*\/#]/, Comment::Single
+    end
+
     state :keywords do
-      rule %r/PROFILE|COMPONENT|UNIT|META|DEF|USE|EXTERNPROTO|PROTO|IS|ROUTE|TO|IMPORT|EXPORT|AS/, Keyword
+      rule %r/\b(?:PROFILE|COMPONENT|UNIT|META|DEF|USE|EXTERNPROTO|PROTO|IS|ROUTE|TO|IMPORT|EXPORT|AS)\b/, Keyword
     end
 
     state :accessTypes do
-      rule %r/initializeOnly|inputOnly|outputOnly|inputOutput|field|eventIn|eventOut|exposedField/, Keyword
+      rule %r/\b(?:initializeOnly|inputOnly|outputOnly|inputOutput|field|eventIn|eventOut|exposedField)\b/, Keyword
     end
 
     state :typeName do
