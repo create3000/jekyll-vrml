@@ -1,5 +1,7 @@
 # jekyll-vrml
 
+[![Gem Version](https://badge.fury.io/rb/jekyll-vrml.svg?icon=si%3Arubygems)](https://badge.fury.io/rb/jekyll-vrml)
+
 Adds support for VRML syntax highlighting to Jekyll. This allows developers to easily integrate and display X3D content within their Jekyll-powered websites.
 
 ## Usage
