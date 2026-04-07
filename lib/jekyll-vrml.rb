@@ -54,7 +54,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       # https://github.com/rouge-ruby/rouge/blob/master/lib/rouge/lexers/javascript.rb
 
       rule %r/\b(?:TRUE|FALSE|NULL)\b/, Keyword::Constant
-      rule %r/\b(?:SFBool|SFColor|SFColorRGBA|SFDouble|SFFloat|SFImage|SFInt32|SFMatrix3d|SFMatrix3f|SFMatrix4d|SFMatrix4f|VrmlMatrix|SFNode|SFRotation|SFString|SFTime|SFVec2d|SFVec2f|SFVec3d|SFVec3f|SFVec4d|SFVec4f|MFBool|MFColor|MFColorRGBA|MFDouble|MFFloat|MFImage|MFInt32|MFMatrix3d|MFMatrix3f|MFMatrix4d|MFMatrix4f|MFNode|MFRotation|MFString|MFTime|MFVec2d|MFVec2f|MFVec3d|MFVec3f|MFVec4d|MFVec4f)\b/, Keyword::Declaration
+      rule %r/\b(?:[SM]F(?:Bool|Color(?:RGBA)?|Double|Float|Image|Int32|Matrix[34][df]|Node|Rotation|String|Time|Vec[234][df]))\b/, Keyword::Declaration
 
       rule %r/#{id}(?=\s*\{)/, Name::Class # typeNames
       rule %r/#{id}/, Name::Attribute # fieldNames
@@ -84,7 +84,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     end
 
     state :keywords do
-      rule %r/\b(?:PROFILE|COMPONENT|UNIT|META|DEF|USE|EXTERNPROTO|PROTO|IS|ROUTE|TO|IMPORT|EXPORT|AS)\b/, Keyword
+      rule %r/\b(?:PROFILE|COMPONENT|UNIT|META|EXTERNPROTO|PROTO|IS|DEF|USE|ROUTE|TO|IMPORT|EXPORT|AS|DESCRIPTION)\b/, Keyword
     end
 
     state :accessTypes do
