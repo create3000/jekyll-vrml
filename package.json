@@ -1,11 +1,16 @@
 {
   "name": "jekyll-vrml",
+  "version": "2.2.5",
   "license": "MIT",
   "scripts": {
     "prebuild": "rm -f ./*.gem",
     "build": "gem build jekyll-vrml.gemspec",
     "try": "sudo gem install ./*.gem",
-    "publish": "gem push ./*.gem",
+    "release": "node build/release.js",
     "merge:development": "sh build/merge-development.sh"
+  },
+  "devDependencies": {
+    "glob": "^13.0.6",
+    "shell-tools": "^1.1.9"
   }
 }
