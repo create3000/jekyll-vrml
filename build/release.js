@@ -19,15 +19,13 @@ function main ()
       updated = sh (`npm pkg get version | sed 's/"//g'`) .trim (),
       series  = updated .replace (/\.[^\.]+$/, "");
 
-   systemSync (`sed -i "" -E "s|"${current}"|"@${updated}"|g" ${file}`);
+   systemSync (`sed -i "" -E "s|"${current}"|"${updated}"|g" ${file}`);
 	systemSync (`sed -i "" -E "s|'~> [0-9.]+'|'~> ${series}'|g" ./README.md`);
 
 	const version = sh (`npm pkg get version | sed 's/"//g'`) .trim ();
 
 	console .log (`Current version ${current}`);
 	console .log (`New version ${version}`);
-
-   return;
 
 	// commit
 	systemSync (`git add -A`);
