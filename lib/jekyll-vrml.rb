@@ -54,7 +54,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       # https://github.com/rouge-ruby/rouge/blob/master/lib/rouge/lexers/javascript.rb
 
       rule %r/\b(?:TRUE|FALSE|NULL)\b/, Keyword::Constant
-      rule %r/\b(?:[SM]F(?:Bool|Color(?:RGBA)?|Double|Float|Image|Int32|Matrix[34][df]|Node|Rotation|String|Time|Vec[234][df]))\b/, Keyword::Declaration
+      rule %r/\b(?:[SM]F(?:Bool|Color(?:RGBA)?|Double|Float|Image|Int32|Matrix[34][df]|Node|Quaternion|Rotation|String|Time|Vec[234][df]))\b/, Keyword::Declaration
 
       rule %r/#{id}(?=\s*\{)/, Name::Class # typeNames
       rule %r/#{id}/, Name::Attribute # fieldNames
