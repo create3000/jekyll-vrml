@@ -1,6 +1,6 @@
 {
   "name": "jekyll-vrml",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "license": "MIT",
   "scripts": {
     "prebuild": "rm -f ./*.gem",
