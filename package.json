@@ -6,6 +6,6 @@
     "build": "gem build jekyll-vrml.gemspec",
     "try": "sudo gem install ./*.gem",
     "publish": "gem push ./*.gem",
-    "merge-development": "sh build/merge-development.sh"
+    "merge:development": "sh build/merge-development.sh"
   }
 }
