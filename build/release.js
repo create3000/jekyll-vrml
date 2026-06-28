@@ -31,6 +31,7 @@ function main ()
 	systemSync (`git add -A`);
 	systemSync (`git commit -am 'Published version ${version}'`);
 	systemSync (`git push origin`);
+   systemSync (`npm run merge:development`);
 
 	// tag
 	systemSync (`git tag ${version}`);
