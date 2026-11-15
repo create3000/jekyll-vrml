@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/jekyll-vrml.svg?icon=si%3Arubygems)](https://badge.fury.io/rb/jekyll-vrml)
 
-Adds support for VRML syntax highlighting to Jekyll. Enables automatic highlighting of VRML code blocks in documentation and blog posts, making 3D scene descriptions easier to read and understand. Supports syntax highlighting for embedded script and shader nodes.
+Adds support for VRML syntax highlighting to Jekyll. Enables automatic highlighting of X3D VRML code blocks in documentation and blog posts, making 3D scene descriptions easier to read and understand. Supports syntax highlighting for embedded script and shader nodes.
 
 ## Usage
 
